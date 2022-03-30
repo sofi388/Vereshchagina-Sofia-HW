@@ -1,18 +1,10 @@
 package hw1;
 
-import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class CalculatorMultTest {
-    protected Calculator Calc;
-
-    @BeforeMethod
-    public void makeCalculator() {
-        Calc = new Calculator();
-    }
+public class CalculatorMultTest extends AllTest {
 
     @DataProvider
     public Object[][] newData() {
@@ -21,7 +13,7 @@ public class CalculatorMultTest {
     }
 
     @Test(dataProvider = "newData")
-    public void testMult(float res, float a, float b) throws Exception {
+    public void testMult(float res, float a, float b) {
         double sum = Calc.mult(a, b);
         Assert.assertEquals(res, sum);
     }
