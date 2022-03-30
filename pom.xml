@@ -12,25 +12,25 @@
     <profiles>
         <profile>
             <id>sumsub-tests</id>
+            <properties>
+                <testng.suite.file>${project.build.testOutputDirectory}/sumsub.xml</testng.suite.file>
+            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <my.xml.files>xml/sumsub.xml</my.xml.files>
-            </properties>
         </profile>
 
         <profile>
             <id>multdiv-tests</id>
             <properties>
-                <my.xml.files>xml/multdiv.xml</my.xml.files>
+                <testng.suite.file>${project.build.testOutputDirectory}/multdiv.xml</testng.suite.file>
             </properties>
         </profile>
 
         <profile>
             <id>all-tests</id>
             <properties>
-                <my.xml.files>xml/testingall.xml</my.xml.files>
+                <testng.suite.file>${project.build.testOutputDirectory}/testingall.xml</testng.suite.file>
             </properties>
         </profile>
     </profiles>
@@ -68,11 +68,7 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>src/test/java/resources/multdiv.xml</suiteXmlFile>
-                            <suiteXmlFile>src/test/java/resources/sumsub.xml</suiteXmlFile>
-                            <suiteXmlFile>src/test/java/resources/testingall.xml</suiteXmlFile>
-                        </suiteXmlFiles>
+                        <suiteXmlFiles>${testng.suite.file}</suiteXmlFiles>
                     </configuration>
                 </plugin>
             </plugins>
