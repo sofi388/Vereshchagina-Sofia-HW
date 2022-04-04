@@ -8,13 +8,11 @@
     <artifactId>vereshchagina-sofia-hw-test</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>vereshchagina-sofia-hw-test</name>
-
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.compiler.source>17</maven.compiler.source>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -35,9 +33,33 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
         </dependency>
-
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>sumsub-tests</id>
+            <properties>
+                <testng.suite.file>${project.build.testOutputDirectory}/sumsub.xml</testng.suite.file>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>multdiv-tests</id>
+            <properties>
+                <testng.suite.file>${project.build.testOutputDirectory}/multdiv.xml</testng.suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>all-tests</id>
+            <properties>
+                <testng.suite.file>${project.build.testOutputDirectory}/testingall.xml</testng.suite.file>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <pluginManagement>
