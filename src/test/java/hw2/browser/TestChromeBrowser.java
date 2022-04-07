@@ -29,8 +29,6 @@ public class TestChromeBrowser {
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
     }
 
-    //отдельный тест на запуск браузера и авторизацию
-    @Test
     public void logIn() {
         //проверка страницы
         driver.get(homeUrl);

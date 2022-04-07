@@ -19,7 +19,8 @@ public class ChromeTest1 extends TestChromeBrowser {
         for (WebElement current : headerItems) {
             softAssert.assertTrue(current.isDisplayed());
         }
-        softAssert.assertEquals(headerItems.stream().map(WebElement::getText).toArray(String[]::new), expectedItemText);
+        softAssert.assertEquals(headerItems.stream().map(WebElement::getText).toArray(String[]::new),
+                expectedItemText);
 
         //6
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
@@ -30,14 +31,17 @@ public class ChromeTest1 extends TestChromeBrowser {
 
         //7
         List<WebElement> texts = driver.findElements(By.className("benefit-txt"));
-        String[] expectedImageText = {"To include good practices\nand ideas from successful\nEPAM project", "To be flexible and\ncustomizable", "To be multiplatform",
-                "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…"};
+        String[] expectedImageText = {"To include good practices\nand ideas from successful\nEPAM project",
+                "To be flexible and\ncustomizable", "To be multiplatform",
+                "Already have good base\n(about 20 internal and\n" +
+                        "some external projects),\nwish to get more…"};
 
         softAssert.assertEquals(texts.size(), expectedImageText.length);
         for (WebElement imageText : texts) {
             softAssert.assertTrue(imageText.isDisplayed());
         }
-        softAssert.assertEquals(texts.stream().map(WebElement::getText).toArray(String[]::new), expectedImageText);
+        softAssert.assertEquals(texts.stream().map(WebElement::getText).toArray(String[]::new),
+                expectedImageText);
 
         //8
         WebElement iframe = driver.findElement(By.tagName("iframe"));
@@ -58,7 +62,8 @@ public class ChromeTest1 extends TestChromeBrowser {
         for (WebElement current : menuItems) {
             softAssert.assertTrue(current.isDisplayed());
         }
-        softAssert.assertEquals(menuItems.stream().map(WebElement::getText).toArray(String[]::new), expectedMenuText);
+        softAssert.assertEquals(menuItems.stream().map(WebElement::getText).toArray(String[]::new),
+                expectedMenuText);
 
         softAssert.assertAll();
     }
