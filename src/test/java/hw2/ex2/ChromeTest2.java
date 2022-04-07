@@ -42,7 +42,8 @@ public class ChromeTest2 extends TestChromeBrowser {
         yellow.click();
 
         //9
-        String[] expectedLogs = {"Colors: value changed to Yellow", "metal: value changed to Selen", "Wind: condition changed to true", "Water: condition changed to true"
+        String[] expectedLogs = {"Colors: value changed to Yellow", "metal: value changed to Selen",
+                "Wind: condition changed to true", "Water: condition changed to true"
         };
 
         List<WebElement> log = driver.findElements(By.cssSelector(".info-panel-body-log li"));
