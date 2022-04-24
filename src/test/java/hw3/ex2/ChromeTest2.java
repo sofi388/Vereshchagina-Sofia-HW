@@ -14,22 +14,13 @@ public class ChromeTest2 extends TestChromeBrowser {
     public void chromeTest2() {
         //1-4
         logIn(new UserData("ROMAN IOVLEV", "Roman", "Jdi1234"), "Home Page");
-
         //5-9
         HomePage.getFirstMenu().getSubitemByText("SERVICE", "DIFFERENT ELEMENTS").click();
-
-        //if delete "new" + driver argument in constructor - clickCheckBox etc. will always be null
-        new DifferentElementsPage(driver).clickCheckBox("Water");
-        new DifferentElementsPage(driver).clickCheckBox("Wind");
-        new DifferentElementsPage(driver).clickRadioButton("Selen");
-        new DifferentElementsPage(driver).clickDropdown("Yellow");
-
-        /*
-        DifferentElementsPage.clickCheckBox("Wind");
         DifferentElementsPage.clickCheckBox("Water");
+        DifferentElementsPage.clickCheckBox("Wind");
         DifferentElementsPage.clickRadioButton("Selen");
         DifferentElementsPage.clickDropdown("Yellow");
-        */
+
         String[] expectedLogs = {"Colors: value changed to Yellow",
                 "metal: value changed to Selen",
                 "Wind: condition changed to true",

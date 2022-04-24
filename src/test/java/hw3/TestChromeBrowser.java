@@ -1,5 +1,6 @@
 package hw3;
 
+import hw3.elements.DifferentElementsPage;
 import hw3.elements.HomePage;
 import hw3.elements.User;
 import org.openqa.selenium.WebDriver;
@@ -17,10 +18,6 @@ public class TestChromeBrowser {
     protected WebDriver driver;
     protected String homeUrl;
 
-    private final String login = "Roman";
-    private final String password = "Jdi1234";
-    private final String name = "ROMAN IOVLEV";
-
     @BeforeSuite
     public void initSystem() {
         String path = "src/main/resources/chromedriver.exe";
@@ -33,8 +30,8 @@ public class TestChromeBrowser {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
-
-        HomePage page = new HomePage(driver);
+        new HomePage(driver);
+        new DifferentElementsPage(driver);
         Properties properties = new Properties();
         try {
             properties.load(new FileReader("src/test/resources/data.properties"));
@@ -50,10 +47,11 @@ public class TestChromeBrowser {
         User user = HomePage.getUser();
         user.authorization(userData.getLogin(), userData.getPassword());
         softAssert.assertEquals(user.getUserName(), userData.getName());
+        softAssert.assertAll();
     }
 
-    @AfterMethod
     //выход из браузера
+    @AfterMethod
     public void closeBrowser() {
         driver.quit();
     }
