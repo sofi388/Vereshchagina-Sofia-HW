@@ -1,19 +1,21 @@
 package hw3.ex2;
 
 import hw3.TestChromeBrowser;
-import hw3.UserData;
 import hw3.elements.DifferentElementsPage;
 import hw3.elements.HomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import static hw3.Users.roman;
+
 
 public class ChromeTest2 extends TestChromeBrowser {
     @Test
     public void chromeTest2() {
         //1-4
-        logIn(new UserData("ROMAN IOVLEV", "Roman", "Jdi1234"), "Home Page");
+        logIn(roman, "Home Page");
+
         //5-9
         HomePage.getFirstMenu().getSubitemByText("SERVICE", "DIFFERENT ELEMENTS").click();
         DifferentElementsPage.clickCheckBox("Water");

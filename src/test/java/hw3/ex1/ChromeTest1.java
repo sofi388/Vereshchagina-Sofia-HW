@@ -1,18 +1,19 @@
 package hw3.ex1;
 
 import hw3.TestChromeBrowser;
-import hw3.UserData;
 import hw3.elements.HomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import java.util.List;
+
+import static hw3.Users.roman;
 
 public class ChromeTest1 extends TestChromeBrowser {
     @Test
     public void chromeTest1() {
-        logIn(new UserData("ROMAN IOVLEV", "Roman", "Jdi1234"), "Home Page");
+        //1-4
+        logIn(roman, "Home Page");
 
         //5 - 7
         String[] expectedItemText = {"HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"};
