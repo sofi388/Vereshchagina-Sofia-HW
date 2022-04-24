@@ -2,45 +2,45 @@ package hw3.ex2;
 
 import hw3.TestChromeBrowser;
 import hw3.UserData;
-import hw3.elements.Elements;
-import hw3.elements.Page;
-import org.openqa.selenium.By;
+import hw3.elements.DifferentElementsPage;
+import hw3.elements.HomePage;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 
 public class ChromeTest2 extends TestChromeBrowser {
     @Test
     public void chromeTest2() {
         //1-4
-        logIn(new UserData("", "login", "password"), "Home Page");
+        logIn(new UserData("ROMAN IOVLEV", "Roman", "Jdi1234"), "Home Page");
 
         //5-9
+        HomePage.getFirstMenu().getSubitemByText("SERVICE", "DIFFERENT ELEMENTS").click();
 
-        //this doesn't work
-        //even manually opening page and clicking - doesn't work
+        //if delete "new" + driver argument in constructor - clickCheckBox etc. will always be null
+        new DifferentElementsPage(driver).clickCheckBox("Water");
+        new DifferentElementsPage(driver).clickCheckBox("Wind");
+        new DifferentElementsPage(driver).clickRadioButton("Selen");
+        new DifferentElementsPage(driver).clickDropdown("Yellow");
 
-        Page.getFirstMenu().getSubitemByText("SERVICE", "DIFFERENT ELEMENTS").click();
-
-
-        Elements diffElem = new Elements(driver);
-
-        diffElem.clickCheckBox("Water");
-        diffElem.clickCheckBox("Wind");
-        diffElem.clickRadioButton("Selen");
-        diffElem.clickDropdown("Yellow");
-
+        /*
+        DifferentElementsPage.clickCheckBox("Wind");
+        DifferentElementsPage.clickCheckBox("Water");
+        DifferentElementsPage.clickRadioButton("Selen");
+        DifferentElementsPage.clickDropdown("Yellow");
+        */
         String[] expectedLogs = {"Colors: value changed to Yellow",
                 "metal: value changed to Selen",
                 "Wind: condition changed to true",
                 "Water: condition changed to true"
         };
+        SoftAssert softAssert = new SoftAssert();
         for (int i = 0; i < expectedLogs.length; i++) {
-            WebElement current = diffElem.getLogs().get(i);
+            WebElement current = DifferentElementsPage.getLogs().get(i);
             softAssert.assertTrue(current.isDisplayed());
             softAssert.assertTrue(current.getText().contains(expectedLogs[i]));
         }
-
         softAssert.assertAll();
     }
 }

@@ -1,6 +1,6 @@
 package hw3;
 
-import hw3.elements.Page;
+import hw3.elements.HomePage;
 import hw3.elements.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class TestChromeBrowser {
     protected WebDriver driver;
-    protected SoftAssert softAssert;
     protected String homeUrl;
 
     private final String login = "Roman";
@@ -34,22 +33,21 @@ public class TestChromeBrowser {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
-        softAssert = new SoftAssert();
-        Page page = new Page(driver);
+
+        HomePage page = new HomePage(driver);
         Properties properties = new Properties();
         try {
             properties.load(new FileReader("src/test/resources/data.properties"));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void logIn(UserData userData, String expTitle) {
-
         driver.get(homeUrl);
+        SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(driver.getTitle(), expTitle);
-        User user = Page.getUser();
+        User user = HomePage.getUser();
         user.authorization(userData.getLogin(), userData.getPassword());
         softAssert.assertEquals(user.getUserName(), userData.getName());
     }

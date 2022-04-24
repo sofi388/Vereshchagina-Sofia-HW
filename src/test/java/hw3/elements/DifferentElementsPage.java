@@ -5,21 +5,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
-public class Elements {
+public class DifferentElementsPage {
     @FindBy(css = "label.label-checkbox")
-    List<WebElement> checkBoxes;
+    static List<WebElement> checkBoxes;
     @FindBy(css = "label.label-radio")
-    List<WebElement> radioButtons;
+    static List<WebElement> radioButtons;
     @FindBy(tagName = "option")
-    List<WebElement> dropdown;
+    static List<WebElement> dropdown;
     @FindBy(css = ".info-panel-body-log li")
-    List<WebElement> logs;
+    static List<WebElement> logs;
 
-    public Elements(WebDriver driver) {
+    public DifferentElementsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickCheckBox(String textCheckBox) {
+    public static void clickCheckBox(String textCheckBox) {
         for (WebElement box : checkBoxes) {
             if (box.getText().equals(textCheckBox)) {
                 box.click();
@@ -28,7 +28,7 @@ public class Elements {
         }
     }
 
-    public void clickRadioButton(String textRadioButton) {
+    public static void clickRadioButton(String textRadioButton) {
         for (WebElement radio : radioButtons) {
             if (radio.getText().equals(textRadioButton)) {
                 radio.click();
@@ -37,7 +37,7 @@ public class Elements {
         }
     }
 
-    public void clickDropdown(String textDropdown) {
+    public static void clickDropdown(String textDropdown) {
         for (WebElement option : dropdown) {
             if (option.getText().equals(textDropdown)) {
                 option.click();
@@ -46,7 +46,7 @@ public class Elements {
         }
     }
 
-    public List<WebElement> getLogs() {
+    public static List<WebElement> getLogs() {
         return logs;
     }
 }

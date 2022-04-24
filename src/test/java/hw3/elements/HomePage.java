@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Page {
+public class HomePage {
     private static FirstMenu firstMenu;
     private static User user;
     private static SecondMenu secondMenu;
@@ -20,9 +20,9 @@ public class Page {
     @FindBy(tagName = "iframe")
     private static WebElement frame;
 
-    public Page(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
-        this.driver = driver;
+        HomePage.driver = driver;
         firstMenu = new FirstMenu(driver);
         user = new User(driver);
         secondMenu = new SecondMenu(driver);
@@ -33,27 +33,22 @@ public class Page {
     }
 
     public static User getUser() {
-
         return user;
     }
 
     public static SecondMenu getSecondMenu() {
-
         return secondMenu;
     }
 
     public static List<WebElement> getImages() {
-
         return images;
     }
 
     public static List<WebElement> getImageTexts() {
-
         return imageTexts;
     }
 
     public static WebElement getFrame() {
-
         return frame;
     }
 

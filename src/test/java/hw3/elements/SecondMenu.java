@@ -11,12 +11,10 @@ public class SecondMenu {
     List<WebElement> leftItems;
 
     public SecondMenu(WebDriver driver) {
-
         PageFactory.initElements(driver, this);
     }
 
     public List<WebElement> getLeftItems() {
-
         return leftItems;
     }
 }
