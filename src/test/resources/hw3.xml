@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test-Hw2">
+    <test name="ToolsQA">
+        <classes>
+            <class name="hw3.ex1.ChromeTest1"/>
+            <class name="hw3.ex2.ChromeTest2"/>
+        </classes>
+    </test>
+</suite>
