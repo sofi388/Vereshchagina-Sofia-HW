@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Test-Hw4" >
+    <listeners>
+        <listener class-name="hw4.allure.AllureListener"></listener>
+    </listeners>
+    <test name="test" >
+        <packages>
+            <package name="hw5.runners"></package>
+        </packages>
+    </test>
+</suite>
