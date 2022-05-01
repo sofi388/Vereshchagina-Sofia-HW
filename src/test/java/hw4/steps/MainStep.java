@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class MainStep {
     protected WebDriver driver;
-
     protected HomePage homePage;
     protected DifferentElementsPage diffElem;
 

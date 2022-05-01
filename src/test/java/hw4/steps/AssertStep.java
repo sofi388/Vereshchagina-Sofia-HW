@@ -83,7 +83,6 @@ public class AssertStep extends MainStep {
     }
 
     public void assertAll() {
-
         softAssert.assertAll();
     }
 }
