@@ -137,6 +137,9 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
+                        <argLine>
+                            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.9/aspectjweaver-1.9.9.jar"
+                        </argLine>
                         <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFiles>${testng.suite.file}</suiteXmlFiles>
                         <systemPropertyVariables>
@@ -154,6 +157,7 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

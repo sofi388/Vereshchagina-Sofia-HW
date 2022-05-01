@@ -4,6 +4,7 @@
         <classes>
             <class name="hw4.ex1.ChromeTest1"/>
             <class name="hw4.ex2.ChromeTest2"/>
+            <class name="hw4.ex1.ChromeFailTest1"/>
         </classes>
     </test>
 </suite>
