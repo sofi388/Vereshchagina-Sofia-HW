@@ -9,10 +9,6 @@ import org.openqa.selenium.WebDriver;
 
 public class ActionStep extends MainStep {
 
-    public ActionStep(WebDriver driver) {
-        super(driver);
-    }
-
     @When("I click on {string} in Header Menu->Service")
     public void clickServiceItem(String subitem) {
         HomePage.getFirstMenu().getSubitemByText("SERVICE", subitem).click();

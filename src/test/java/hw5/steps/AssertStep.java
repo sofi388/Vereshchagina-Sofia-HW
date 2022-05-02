@@ -12,9 +12,6 @@ import org.testng.Assert;
 import java.util.List;
 
 public class AssertStep extends MainStep {
-    public AssertStep(WebDriver driver) {
-        super(driver);
-    }
 
     @Then("Title of page is {string}")
     public void checkTitle(String expTitle) {
@@ -108,6 +105,7 @@ public class AssertStep extends MainStep {
     public void checkCheckboxes() {
         checkNumberAndDisplay(Table.getCheckboxes());
     }
+
     @Then("Table should contain following values:")
     public void checkTableContent(List<List<String>> expValues) {
         for (int i = 0; i < 6; i++) {

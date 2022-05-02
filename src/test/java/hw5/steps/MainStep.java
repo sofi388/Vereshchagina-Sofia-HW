@@ -2,25 +2,22 @@ package hw5.steps;
 
 import hw3.elements.DifferentElementsPage;
 import hw3.elements.HomePage;
+import hw5.Table;
+import hw5.TestContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 public class MainStep {
-    protected WebDriver driver;// = new ChromeDriver();
+    protected WebDriver driver;
     protected HomePage homePage;
-    static protected String path;// = "src/main/resources/chromedriver.exe";
+    protected DifferentElementsPage differentElementsPage;
+    protected Table userTablePage;
 
-
-    @BeforeSuite(description = "Set path to chrome driver")
-    public void initSystem() {
-        path = "src/main/resources/chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", path);
-    }
-
-    public MainStep(org.openqa.selenium.WebDriver driver) {
-        this.driver = driver;//new ChromeDriver();;
+    public MainStep() {
+        driver = TestContext.getInstance().getTestObject("driver");
+        homePage = new HomePage(driver);
+        differentElementsPage = new DifferentElementsPage(driver);
+        userTablePage = new Table(driver);
     }
 
 }
