@@ -65,7 +65,8 @@ public class AssertStep extends MainStep {
         for (WebElement current : leftItems) {
             Assert.assertTrue(current.isDisplayed());
         }
-        Assert.assertEquals(leftItems.stream().map(WebElement::getText).toArray(String[]::new), expText.toArray());
+        Assert.assertEquals(leftItems.stream().map(WebElement::getText).toArray(String[]::new),
+                expText.toArray());
     }
 
     @Then("I can see logs with proper text")
@@ -115,7 +116,8 @@ public class AssertStep extends MainStep {
 
     @Then("droplist should contain values in column Type for user Roman")
     public void checkDroplist(List<String> expValues) {
-        Assert.assertEquals(Table.getDropListValues(0).stream().map(WebElement::getText).toArray(String[]::new), expValues.subList(1, 4).toArray());
+        Assert.assertEquals(Table.getDropListValues(0).stream().map(WebElement::getText).
+                toArray(String[]::new), expValues.subList(1, 4).toArray());
     }
 
     @Then("1 log row has {string} text in log section")

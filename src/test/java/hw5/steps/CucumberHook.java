@@ -14,9 +14,6 @@ public class CucumberHook {
 
     @Before
     public void initBrowser() {
-        String path = "src/main/resources/chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", path);
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);

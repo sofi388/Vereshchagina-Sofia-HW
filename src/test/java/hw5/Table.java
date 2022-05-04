@@ -12,23 +12,22 @@ import java.util.List;
 public class Table {
 
     @FindBy(css = "table select")
-    static
-    List<WebElement> dropdowns;
+    static List<WebElement> dropdowns;
+
     @FindBy(css = "table a")
-    static
-    List<WebElement> names;
+    static List<WebElement> names;
+
     @FindBy(css = "table .user-descr span")
-    static
-    List<WebElement> descriptions;
+    static List<WebElement> descriptions;
+
     @FindBy(css = "table input")
-    static
-    List<WebElement> checkboxes;
+    static List<WebElement> checkboxes;
+
     @FindBy(css = "table tr")
-    static
-    List<WebElement> tableLines;
+    static List<WebElement> tableLines;
+
     @FindBy(css = "div.info-panel-section")
-    static
-    WebElement log;
+    static WebElement log;
 
     public Table(WebDriver driver) {
         PageFactory.initElements(driver, this);
