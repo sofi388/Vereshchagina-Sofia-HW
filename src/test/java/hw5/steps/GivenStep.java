@@ -7,19 +7,13 @@ import org.openqa.selenium.WebDriver;
 
 public class GivenStep extends MainStep {
 
-    //class hw5.steps1.ConditionStep does not have a public zero-argument constructor.
-    public GivenStep(WebDriver driver) {
-        super(driver);
-    }
-
     @Given("I open Home Page {string}")
     public void openSite(String url) {
-        driver.get(url); //why driver is null
+        driver.get(url);
     }
 
     @Given("I log in with login: {string} and password: {string}")
     public void logIn(String login, String password) {
         HomePage.getUser().authorization(login, password);
-
     }
 }

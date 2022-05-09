@@ -4,8 +4,8 @@
         <listener class-name="hw4.allure.AllureListener"></listener>
     </listeners>
     <test name="test" >
-        <packages>
-            <package name="hw5.runners"></package>
-        </packages>
+        <classes>
+            <class name="hw5.runner.AllTests"/>
+        </classes>
     </test>
 </suite>
